@@ -1,1 +1,1 @@
-typedef class uvm_sequencer#(ahb_tx) ahb_sqr;
+typedef uvm_sequencer#(ahb_tx) ahb_sqr;
