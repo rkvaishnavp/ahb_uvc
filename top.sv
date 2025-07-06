@@ -1,5 +1,6 @@
 `include "uvm_pkg.sv"
 import uvm_pkg::*;
+`include "ahb_common.sv"
 `include "ahb_intf.sv"
 `include "ahb_tx.sv"
 `include "ahb_seq_lib.sv"
@@ -11,10 +12,14 @@ import uvm_pkg::*;
 `include "ahb_sagent.sv"
 `include "ahb_env.sv"
 `include "test_lib.sv"
+
 module top;
 
   reg clk, rst;
-  ahb_intf pif;
+  ahb_intf pif (
+      clk,
+      rst
+  );
 
   initial begin
     clk = 0;
@@ -28,9 +33,7 @@ module top;
   end
 
   initial begin
-    $value$plusargs("count=%d", count);
     uvm_resource_db#(virtual ahb_intf)::set("AHB", "VIF", pif, null);
-
   end
 
   initial begin

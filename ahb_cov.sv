@@ -1,7 +1,8 @@
 class ahb_cov extends uvm_subscriber #(ahb_tx);
 
   ahb_tx tx;
-  `uvm_component_utils(ahb_mon)
+  event  ahb_e;
+  `uvm_component_utils(ahb_cov)
 
   covergroup ahb_cg @(ahb_e);
     coverpoint tx.wr_rd;

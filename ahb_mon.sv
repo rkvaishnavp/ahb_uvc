@@ -1,4 +1,4 @@
-class ahb_mon extends ahb_monitor;
+class ahb_mon extends uvm_monitor;
 
   uvm_analysis_port #(ahb_tx) ap_port;
   virtual ahb_intf vif;
