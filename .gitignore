@@ -1,34 +1,31 @@
-# Ignore simulation log files
-*.log
-transcript
-vsim_stacktrace.vstf
-
-# Ignore ModelSim/QuestaSim generated files
-*.wlf
-*.vstf
-*.vcd
-*.vpd
-*.do
-
-# Ignore compiled output directories
-work/
-# If you use VCS, Xcelium, etc., add those here too
-
-# Ignore user-specific or temporary files
-*.bak
+# === General editor temporary files ===
 *.swp
 *.swo
+*.swn
 *~
 
-# Ignore executables
-*.out
-*.exe
-*.bin
+# === Simulation logs and temporary outputs ===
+*.log
+*.vstf
+*.vcd
+*.wlf
+*.fsdb
+*.vpd
+*.key
 
-# Ignore common IDE/editor settings
+# === Simulation control scripts (ignore if generated only) ===
+*.do
+
+# === Compiled sim work directories (ModelSim, etc.) ===
+work/
+
+# === IDE / Tool folders ===
 .vscode/
 .idea/
-*.user
 
-# Ignore Git itself
-.git/
+# === Backup files ===
+*.bak
+
+# === Ignore hidden system files ===
+.DS_Store
+Thumbs.db
