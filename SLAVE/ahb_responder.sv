@@ -10,7 +10,7 @@ class ahb_responder extends uvm_driver #(ahb_tx);
     if (!uvm_resource_db#(virtual ahb_intf)::read_by_type("AHB", vif, this)) begin
       `uvm_error("RESOURCE_DB_ERROR", "Not able to retrive ahb_vif handle from resource_db")
     end
-    if (!uvm_resource_db#(virtual ahb_intf)::read_by_type("AHB", arb_vif, this)) begin
+    if (!uvm_resource_db#(virtual arb_intf)::read_by_type("AHB", arb_vif, this)) begin
       `uvm_error("RESOURCE_DB_ERROR", "Not able to retrive arb_vif handle from resource_db")
     end
   endfunction
