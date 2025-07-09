@@ -2,6 +2,7 @@
 import uvm_pkg::*;  //everything of uvm_pkg becomes part of my TB now
 `include "ahb_common.sv"
 `include "ahb_intf.sv"
+`include "arb_intf.sv"
 `include "ahb_tx.sv"
 `include "ahb_seq_lib.sv"
 `include "ahb_sqr.sv"
@@ -15,10 +16,17 @@ import uvm_pkg::*;  //everything of uvm_pkg becomes part of my TB now
 module top;
   reg clk, rst;
   integer count;
+
   ahb_intf pif (
       clk,
       rst
   );
+
+  arb_intf arb_pif (
+      clk,
+      rst
+  );
+
   initial begin
     clk = 0;
     forever #5 clk = ~clk;
@@ -35,6 +43,8 @@ module top;
   initial begin
     $value$plusargs("count=%d", count);
     uvm_resource_db#(virtual ahb_intf)::set("AHB", "VIF", pif,
+                                            null);  //now pif will accessible everywhere in TB
+    uvm_resource_db#(virtual arb_intf)::set("AHB", "ARB_VIF", arb_pif,
                                             null);  //now pif will accessible everywhere in TB
   end
 endmodule

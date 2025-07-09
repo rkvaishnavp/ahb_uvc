@@ -48,6 +48,10 @@ class ahb_tx extends uvm_sequence_item;
 
   constraint burst_c {soft burst == INCR4;}
 
+  constraint size_c {soft size_c == 2;}
+
+  constraint master_c {soft master == 0;}
+
   function void post_randomize();
     calc_wrap_boundaries();
   endfunction
